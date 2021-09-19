@@ -1,0 +1,7 @@
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.config
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\HelloWorld\HelloWorld\bin\Debug\HelloWorld.pdb
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csproj.AssemblyReference.cache
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompileInputs.cache
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
