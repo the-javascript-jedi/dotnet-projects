@@ -1,0 +1,13 @@
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.exe
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.deps.json
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.runtimeconfig.json
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.runtimeconfig.dev.json
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.dll
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.pdb
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.csproj.AssemblyReference.cache
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.AssemblyInfoInputs.cache
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.AssemblyInfo.cs
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.csproj.CoreCompileInputs.cache
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.dll
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.pdb
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\DenisPanjuta\TicTacToe\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.genruntimeconfig.cache
