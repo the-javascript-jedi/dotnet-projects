@@ -31,7 +31,7 @@ namespace HelloMVC_ii.Controllers
         //View Customer Action based on form submit
         //we will recieve Name and Telephone Data in a Customer Model type
         public ActionResult ViewCustomer(Customer postedCustomer)
-        {
+              {
             //use the Customer Model(using HelloMVC_ii.Models;) and create object
             Customer customer = new Customer();
             customer.Id = Guid.NewGuid().ToString();
@@ -46,5 +46,17 @@ namespace HelloMVC_ii.Controllers
         {
             return View();
         }
+
+        //CustomerList scaffolding
+        public ActionResult CustomerList()
+        {
+            List<Customer> customers = new List<Customer>();
+
+            customers.Add(new Customer() { Name = "Fred",Telephone="12345" });
+            customers.Add(new Customer() { Name = "Barney", Telephone = "098765" });
+
+            return View(customers);
+        }
+
     }
 }
