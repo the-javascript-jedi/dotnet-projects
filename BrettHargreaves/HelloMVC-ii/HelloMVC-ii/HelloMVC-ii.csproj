@@ -170,6 +170,7 @@
     <Content Include="Views\Home\AddCustomer.cshtml" />
     <Content Include="Views\Home\ViewCustomer.cshtml" />
     <Content Include="Views\Home\EditCustomer.cshtml" />
+    <Content Include="Views\Home\DeleteCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

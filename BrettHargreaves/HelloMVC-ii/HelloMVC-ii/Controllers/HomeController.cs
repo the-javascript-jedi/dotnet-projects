@@ -115,8 +115,43 @@ namespace HelloMVC_ii.Controllers
                 return RedirectToAction("CustomerList");
             }
         }
+        //Load customer from db and return them to view with a confirm delete button
+        public ActionResult DeleteCustomer(string Id)
+        {
+            Customer customer = customers.FirstOrDefault(c => c.Id == Id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(customer);
+            }
+        }
+
+        //Delete Action and remove the customer from db
+        //we add the HttpPost decorator so that .net will know that this is a post request
+        [HttpPost]
+        //Decorator to overide the action name
+        //- even though our actual result, our c# method is called ConfirmDeleteCustomer, we're telling it to expect an end point of DeleteCustomer.
+        [ActionName("DeleteCustomer")]
+        public ActionResult ConfirmDeleteCustomer(string Id)
+        {
+            Customer customer = customers.FirstOrDefault(c => c.Id == Id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                //Delete customer 
+                customers.Remove(customer);
+                return RedirectToAction("CustomerList");
+            }
+        }
 
         //CustomerList scaffolding
+        
         public ActionResult CustomerList()
         {
             return View(customers);
