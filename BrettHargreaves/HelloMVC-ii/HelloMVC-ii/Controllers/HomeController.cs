@@ -51,16 +51,18 @@ namespace HelloMVC_ii.Controllers
         }
 
         //View Customer Action based on form submit
-        //we will recieve Name and Telephone Data in a Customer Model type
-        public ActionResult ViewCustomer(Customer postedCustomer)
-              {
-            //use the Customer Model(using HelloMVC_ii.Models;) and create object
-            Customer customer = new Customer();
-            customer.Id = Guid.NewGuid().ToString();
-            customer.Name = postedCustomer.Name;
-            customer.Telephone = postedCustomer.Telephone;
-            //return a view with customer object
-            return View(customer);
+        //we will recieve ID of customer and we must use the id and search our memory cache
+        public ActionResult ViewCustomer(string id)
+        {
+            Customer customer = customers.FirstOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(customer);
+            }            
         }
 
         // Add Customer View - this controller will accept different types of calls to it
@@ -79,7 +81,40 @@ namespace HelloMVC_ii.Controllers
             //Redirect to CustomerList action
             return RedirectToAction("CustomerList");
         }
-
+        //EditCustomer endpoint
+        public ActionResult EditCustomer(string id)
+        {
+            Customer customer = customers.FirstOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(customer);
+            }
+        }
+        //EditCustomer endpoint - takes a customer object
+        //we replace the data inside the first customer object using the id received from the second parameter
+        [HttpPost]
+        public ActionResult EditCustomer(Customer customer, string Id)
+        {
+            //load customer from database
+            var customerToEdit = customers.FirstOrDefault(c => c.Id == Id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                //update customer's name and telephone no, if the customer data is found
+                customerToEdit.Name = customer.Name;
+                customerToEdit.Telephone = customer.Telephone;
+                SaveCache();
+                //redirect to CustomerList
+                return RedirectToAction("CustomerList");
+            }
+        }
 
         //CustomerList scaffolding
         public ActionResult CustomerList()
