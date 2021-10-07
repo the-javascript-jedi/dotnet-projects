@@ -127,6 +127,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BasketViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,6 +172,8 @@
     <Content Include="Views\Home\ViewCustomer.cshtml" />
     <Content Include="Views\Home\EditCustomer.cshtml" />
     <Content Include="Views\Home\DeleteCustomer.cshtml" />
+    <Content Include="Views\Shared\SubMenu.cshtml" />
+    <Content Include="Views\Home\Basket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

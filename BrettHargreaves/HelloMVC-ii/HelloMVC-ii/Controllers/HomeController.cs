@@ -31,6 +31,18 @@ namespace HelloMVC_ii.Controllers
             //save the customers list in memory
             cache["customers"] = customers;
         }
+
+        public PartialViewResult Basket()
+        {
+            BasketViewModel model = new BasketViewModel();
+
+            model.BasketCount = 5;
+            model.BasketTotal = "$100";
+
+            return PartialView(model);
+        }
+
+
         public ActionResult Index()
         {
             return View();

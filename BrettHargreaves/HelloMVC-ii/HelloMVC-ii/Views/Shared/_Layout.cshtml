@@ -24,6 +24,11 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
+                @*Since we are using Render action we need to specify flower braces*@
+                @{
+                    @*Basket-Page, home - Controller being used*@
+                Html.RenderAction("Basket", "Home");
+                }
             </div>
         </div>
     </div>
