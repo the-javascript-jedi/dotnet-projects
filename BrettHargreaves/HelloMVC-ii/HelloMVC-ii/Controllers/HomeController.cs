@@ -75,6 +75,11 @@ namespace HelloMVC_ii.Controllers
         [HttpPost]
         public ActionResult AddCustomer(Customer customer)
         {
+            //Enforce the model decorators specified in the Model
+            if (!ModelState.IsValid)
+            {
+                return View(customer);
+            }
             customer.Id = Guid.NewGuid().ToString();
             customers.Add(customer);
             SaveCache();
