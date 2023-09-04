@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+// below values are inheritted from BaseApiController, 
+// [ApiController]
+// [Route("api/[controller]")]
+public class WeatherForecastController : BaseApiController
 {
     private static readonly string[] Summaries = new[]
     {

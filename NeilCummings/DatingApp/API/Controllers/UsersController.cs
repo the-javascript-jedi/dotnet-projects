@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
-// ControllerBase is a base class which provides certain api functionality
-[ApiController]
-[Route("api/[controller]")] // /api/users - (UsersController)
-public class UsersController : ControllerBase
+// in BaseApiController we specify the below commented values and use inheritance and apply the values globally in the BaseApiController
+// [ApiController]
+// [Route("api/[controller]")] // /api/users - (UsersController)
+public class UsersController : BaseApiController
 {
 
     //this field we can use in rest of methods
