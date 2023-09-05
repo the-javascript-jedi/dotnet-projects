@@ -2,6 +2,7 @@
 using System.Text;
 using API.Controllers;
 using API.Data;
+using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ public class AccountController : BaseApiController
     // ActionResult<AppUser> is the return type
     public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
     {
+        //check to see if username already exists
         if (await UserExists(registerDto.Username))
         {
             return BadRequest("username is taken!!!");
@@ -43,7 +45,34 @@ public class AccountController : BaseApiController
             return user;
         }
     }
-
+    [HttpPost("login")]
+    public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+    {
+        // if user not present we get null in response.
+        // SingleOrDefault - throws exception if more than one value is present
+        //FirstOrDefault - returns first value or default value
+        var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
+        if (user == null)
+        {
+            return Unauthorized();
+        }
+        else
+        {
+            // check if the user password is valid by passing in the stored password salt to the hashing algorithm
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
+            // check the saved password salt with the computed hash
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != user.PasswordHash[i])
+                {
+                    return Unauthorized("invalid password");
+                }
+            }
+            //success - return the user
+            return user;
+        }
+    }
     //check to see if username already exists
     private async Task<bool> UserExists(string username)
     {
