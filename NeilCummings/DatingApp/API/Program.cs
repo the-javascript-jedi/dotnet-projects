@@ -1,4 +1,6 @@
+using API;
 using API.Data;
+using API.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +19,9 @@ builder.Services.AddDbContext<DataContext>(opt =>
 });
 // add CORS Support
 builder.Services.AddCors();
-
+// add a service using the scoped method
+// we add the interface along with the scoped service
+builder.Services.AddScoped<ITokenService, TokenService>();
 var app = builder.Build();
 // add CORS Middleware to allow website name
 // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
