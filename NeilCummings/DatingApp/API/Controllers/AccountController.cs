@@ -4,6 +4,7 @@ using API.Controllers;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,14 +14,17 @@ public class AccountController : BaseApiController
     // to inject some data to controller we need the constructor
     // to create a controller type ctor
     private readonly DataContext _context;
-    public AccountController(DataContext context)
+    private readonly ITokenService _tokenService;
+    // also inject the tokenService with the ITokenService
+    public AccountController(DataContext context, ITokenService tokenService)
     {
         _context = context;
+        _tokenService = tokenService;
     }
 
     [HttpPost("register")] //POST: api/account/register
-    // ActionResult<AppUser> is the return type
-    public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
+    // ActionResult<UserDto> is the return type
+    public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
         //check to see if username already exists
         if (await UserExists(registerDto.Username))
@@ -42,11 +46,15 @@ public class AccountController : BaseApiController
             // save changes to db
             await _context.SaveChangesAsync();
             //saved user will be sent as response to the api endpoint
-            return user;
+            return new UserDto
+            {
+                Username = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
     }
     [HttpPost("login")]
-    public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+    public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
         // if user not present we get null in response.
         // SingleOrDefault - throws exception if more than one value is present
@@ -70,7 +78,11 @@ public class AccountController : BaseApiController
                 }
             }
             //success - return the user
-            return user;
+            return new UserDto
+            {
+                Username = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
     }
     //check to see if username already exists
