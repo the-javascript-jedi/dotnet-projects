@@ -11,31 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+// we are extending the the Service for making db calls in a separate extension, instead of specifying here itself
+// we will extend the services by this IServiceCollection services
+builder.Services.AddApplicationServices(builder.Configuration);
+// JWT Authentication service extension
+builder.Services.AddIdentityServices(builder.Configuration);
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// when we want something from our db, we need access to that dbcontext class,so we add it as a service to our program class
-builder.Services.AddDbContext<DataContext>(opt =>
-{
-    // if intellisense is not present try ctrl + '.'
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-// add authentication - jwt token options after installig nuget package
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["TokenKey"])),
-        ValidateIssuer = false,
-        ValidateAudience = false
-    };
-});
-// add CORS Support
-builder.Services.AddCors();
-// add a service using the scoped method
-// we add the interface along with the scoped service
-builder.Services.AddScoped<ITokenService, TokenService>();
+
 var app = builder.Build();
 // add CORS Middleware to allow website name
 // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));

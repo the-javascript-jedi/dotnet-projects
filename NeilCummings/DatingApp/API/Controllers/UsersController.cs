@@ -31,7 +31,7 @@ public class UsersController : BaseApiController
         var users = await _context.Users.ToListAsync();
         return users;
     }
-    // [Authorize] is applied commonly
+    // [Authorize] is applied commonly to the api
     [HttpGet("{id}")] // /api/users/2
     // https://localhost:5001/api/users/2
     public async Task<ActionResult<AppUser>> GetUser(int id)
