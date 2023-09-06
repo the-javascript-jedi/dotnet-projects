@@ -72,3 +72,6 @@ G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\AP
 G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
 G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

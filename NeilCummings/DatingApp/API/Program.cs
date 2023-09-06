@@ -1,7 +1,10 @@
+using System.Text;
 using API;
 using API.Data;
 using API.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,17 @@ builder.Services.AddDbContext<DataContext>(opt =>
 {
     // if intellisense is not present try ctrl + '.'
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+// add authentication - jwt token options after installig nuget package
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["TokenKey"])),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
 });
 // add CORS Support
 builder.Services.AddCors();
@@ -35,7 +49,10 @@ app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("ht
 
 // app.UseHttpsRedirection();
 
-// app.UseAuthorization();
+//The authentication part just asks, Do you have a valid token
+app.UseAuthentication();
+//the authorization part says, okay, you have a valid token.Now what are you allowed to do
+app.UseAuthorization();
 
 app.MapControllers();
 
