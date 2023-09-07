@@ -1,17 +1,26 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">      
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="loggedIn">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Matches</a>
+                    <a class="nav-link">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lists</a>
+                    <a class="nav-link">Lists</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Messages</a>
-                </li>                
+                    <a class="nav-link">Messages</a>
+                </li>               
             </ul>
-            <form class="d-flex" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+            <!-- dropdown --using ngx-bootstrap -->
+            <div class="dropdown" *ngIf="loggedIn" dropdown>
+                <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome User</a>
+                <div class="dropdown-menu" *dropdownMenu>
+                    <a class="dropdown-item">Edit Profile</a>
+                    <a class="dropdown-item" (click)="logout()">Logout</a>
+                </div>
+            </div>
+            <!-- form -->
+            <form *ngIf="!loggedIn" class="d-flex" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
                 <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text" placeholder="Username">
                 <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password" placeholder="Password">
                 <button class="btn btn-outline-success" type="submit">Login</button>

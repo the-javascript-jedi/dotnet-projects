@@ -25,4 +25,8 @@ export class NavComponent {
     })
     console.log("this.model",this.model);
   }
+
+  logout(){
+    this.loggedIn=false;
+  }
 }
