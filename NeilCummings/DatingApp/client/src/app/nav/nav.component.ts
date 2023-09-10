@@ -3,6 +3,7 @@ import { AccountService } from '../_services/account.service';
 import { Observable, of } from 'rxjs';
 import { User } from '../_models/user';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +14,7 @@ export class NavComponent {
   model:any={};
   // currentUser$:Observable<User|null>=of(null)
   loggedIn=false;
-  constructor(public accountService:AccountService,private router:Router){}
+  constructor(public accountService:AccountService,private router:Router,private toastr:ToastrService){}
 
   ngOnInit(){
     // set the currentUser$ observale from the logged in the 
@@ -28,6 +29,8 @@ export class NavComponent {
       },
       error:(error)=>{
         console.log("error",error);
+        // display error as a toast message
+        this.toastr.error(error.error.title);
         this.router.navigateByUrl('/');
       }
     })
