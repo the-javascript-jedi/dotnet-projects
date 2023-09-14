@@ -1,10 +1,6 @@
-using System.Text;
+// to run > dotnet watch --no-hot-reload
 using API;
-using API.Data;
-using API.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+using API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +19,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+// Configure the HTTP request pipeline
+// add the exception middleware
+app.UseMiddleware<ExceptionMiddleware>();
+
 // add CORS Middleware to allow website name
 // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
