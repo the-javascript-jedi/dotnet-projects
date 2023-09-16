@@ -27,7 +27,7 @@ const routes: Routes = [
 },
 {path:'errors',component:TestErrorComponent},
 {path:'not-found',component:NotFoundComponent},
-{path:'errors',component:ServerErrorComponent},
+{path:'server-error',component:ServerErrorComponent},
 // Wildcard component - redirects to below when route not present in above list
   {path:'**',component:NotFoundComponent,pathMatch:'full'},
 ];
