@@ -23,7 +23,7 @@ public class UsersController : BaseApiController
     }
 
     // GetUsers does not need to be authorized
-    [AllowAnonymous]
+    // [AllowAnonymous]
     [HttpGet]
     // https://localhost:5001/api/users
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
