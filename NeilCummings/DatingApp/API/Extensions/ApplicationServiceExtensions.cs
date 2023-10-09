@@ -20,7 +20,7 @@ public static class ApplicationServiceExtensions
         // add a service using the scoped method
         // we add the interface along with the scoped service
         services.AddScoped<ITokenService, TokenService>();
-
+        services.AddScoped<IUserRepository, UserRepository>();
         return services;
     }
 }
