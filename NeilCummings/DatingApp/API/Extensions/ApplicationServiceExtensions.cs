@@ -21,6 +21,8 @@ public static class ApplicationServiceExtensions
         // we add the interface along with the scoped service
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();
+        // add automapper and tell where our mapping profiles are
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         return services;
     }
 }
