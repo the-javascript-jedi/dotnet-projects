@@ -11,7 +11,7 @@ export class MembersService {
   constructor(private http:HttpClient) { }
 
   getMembers(){
-    return this.http.get<Member[]>(this.baseUrl+'users');
+    return this.http.get<Member[]>(this.baseUrl+'users',this.getHttpOptions());
   }
 
   getMember(username:string){
@@ -23,6 +23,7 @@ export class MembersService {
     const userString=localStorage.getItem('user');
     if(!userString) return;
     const user=JSON.parse(userString);
+    console.log("user",user)
     return {
       headers:new HttpHeaders({
         Authorization:'Bearer '+user.token
