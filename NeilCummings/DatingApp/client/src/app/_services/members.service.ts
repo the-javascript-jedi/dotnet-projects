@@ -9,25 +9,25 @@ import { Member } from '../_models/member';
 export class MembersService {
   baseUrl=environment.apiUrl;
   constructor(private http:HttpClient) { }
-
+  // the auth token for the apis are added in the interceptor, so we do not need to specify it in the httpoptions
   getMembers(){
-    return this.http.get<Member[]>(this.baseUrl+'users',this.getHttpOptions());
+    return this.http.get<Member[]>(this.baseUrl+'users');
   }
 
   getMember(username:string){
-    return this.http.get<Member>(this.baseUrl+'users/'+username,this.getHttpOptions());
+    return this.http.get<Member>(this.baseUrl+'users/');
   }
 
-  // pass the authorization token
-  getHttpOptions(){
-    const userString=localStorage.getItem('user');
-    if(!userString) return;
-    const user=JSON.parse(userString);
-    console.log("user",user)
-    return {
-      headers:new HttpHeaders({
-        Authorization:'Bearer '+user.token
-      })
-    }
-  }
+  // // pass the authorization token
+  // getHttpOptions(){
+  //   const userString=localStorage.getItem('user');
+  //   if(!userString) return;
+  //   const user=JSON.parse(userString);
+  //   console.log("user",user)
+  //   return {
+  //     headers:new HttpHeaders({
+  //       Authorization:'Bearer '+user.token
+  //     })
+  //   }
+  // }
 }
