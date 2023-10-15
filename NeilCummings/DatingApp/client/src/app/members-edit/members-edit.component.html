@@ -3,7 +3,7 @@
         <h1>Your Profile</h1>
     </div>
     <div class="col-8">
-       <div class="alert alert-info">
+       <div class="alert alert-info" *ngIf="editForm.dirty">
         <p>
             <strong>
                 Information:
@@ -32,7 +32,7 @@
             </div>
             <div class="card-footer">
                 <div class="btn-group d-flex">
-                    <button class="btn btn-success col-12">
+                    <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success col-12">
                         Save Changes
                     </button>
                 </div>
@@ -42,7 +42,7 @@
     <div class="col-8">
         <tabset class="member-tabset">
             <tab heading="About {{member.knownAs}}">
-                <form>
+                <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()" >
                     <h4 class="mt-2">Description</h4>
                     <textarea class="form-control"
                         [(ngModel)]="member.introduction"
