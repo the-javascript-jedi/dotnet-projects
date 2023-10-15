@@ -18,6 +18,9 @@ export class MembersService {
     return this.http.get<Member>(this.baseUrl+'users/'+username);
   }
 
+  updateMember(member:Member){
+    return this.http.put(this.baseUrl+'users',member)
+  }  
   // // pass the authorization token
   // getHttpOptions(){
   //   const userString=localStorage.getItem('user');
