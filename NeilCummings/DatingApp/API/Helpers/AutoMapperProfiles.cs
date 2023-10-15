@@ -20,6 +20,7 @@ namespace API.Helpers
             Age should map to the GetAge method
             The Get method name must be same as the variable declared
             */
+            CreateMap<MemberUpdateDto, AppUser>();
         }
     }
 }
