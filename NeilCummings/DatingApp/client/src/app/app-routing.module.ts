@@ -9,6 +9,7 @@ import { authGuard } from './_guards/auth.guard';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { MembersEditComponent } from './members-edit/members-edit.component';
 // default - first matched route wins
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   children:[
     {path:'members',component:MemberListComponent},
     {path:'members/:username',component:MemberDetailComponent},
+    {path:'member/edit',component:MembersEditComponent},
     {path:'lists',component:ListsComponent},
     {path:'messages',component:MessagesComponent},
   ]
