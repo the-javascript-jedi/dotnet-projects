@@ -27,7 +27,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     HomeComponent,
     RegisterComponent,
     MemberListComponent,
-    MemberDetailComponent,
+    //we have specified MemberDetailComponent as standalone to use the photo gallery
+    // MemberDetailComponent,
     ListsComponent,
     MessagesComponent,
     TestErrorComponent,

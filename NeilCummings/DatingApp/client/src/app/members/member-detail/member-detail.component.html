@@ -40,9 +40,8 @@
                 <h4>Interests</h4>
                 <p>{{member.interests}}</p>                
             </tab>
-            <tab heading="Photos">
-                <h4>Photos</h4>
-                <p>Photos will go here</p>
+            <tab heading="Photos" #photoTab="tab">
+                <gallery *ngIf="photoTab.active" [items]="images" class="gallery"></gallery>
             </tab>
             <tab heading="Messages">
                 <h4>Photos</h4>
