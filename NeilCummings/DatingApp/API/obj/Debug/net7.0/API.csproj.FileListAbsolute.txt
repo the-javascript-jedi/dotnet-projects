@@ -78,3 +78,5 @@ G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\AP
 G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\api\bin\Debug\net7.0\Data\UserSeedData.json
 G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\api\bin\Debug\net7.0\AutoMapper.dll
 G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\api\bin\Debug\net7.0\CloudinaryDotNet.dll
+G:\Nithin Samuel\Learning\nithin-repos\dotnet-projects\NeilCummings\DatingApp\api\bin\Debug\net7.0\Newtonsoft.Json.dll
