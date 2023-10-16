@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\api\\API.csproj": {}
+    "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\api\\API.csproj": {
+    "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\api\\API.csproj",
+        "projectUniqueName": "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\api\\API.csproj",
+        "projectPath": "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\api\\obj\\",
+        "outputPath": "G:\\Nithin Samuel\\Learning\\nithin-repos\\dotnet-projects\\NeilCummings\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.20.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
