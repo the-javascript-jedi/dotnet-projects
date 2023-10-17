@@ -90,7 +90,15 @@ namespace API.Controllers
             if (user.Photos.Count == 0) photo.IsMain = true;
             user.Photos.Add(photo);
             // NSTODO getting error
-            if (await _userRepository.SaveAllAsync()) return _mapper.Map<PhotoDto>(photo);
+            if (await _userRepository.SaveAllAsync())
+            {
+                // returns a 201 Created response with location details about newly created resource
+                // specify the GetUser with the user route
+                return CreatedAtAction(nameof(GetUser), new
+                {
+                    username = user.UserName
+                }, _mapper.Map<PhotoDto>(photo));
+            }
             return BadRequest("Problem Adding Photo");
         }
 
