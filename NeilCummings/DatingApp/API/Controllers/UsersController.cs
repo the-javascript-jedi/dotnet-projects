@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 using API.Data;
 using API.DTOs;
 using API.Entities;
@@ -101,6 +102,26 @@ namespace API.Controllers
             }
             return BadRequest("Problem Adding Photo");
         }
-
+        [HttpPut("set-main-photo/{photoId}")]
+        public async Task<ActionResult> SetMainPhoto(int photoId)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            // no user
+            if (user == null) return NotFound();
+            // Finde photo based on id
+            var photo = user.Photos.FirstOrDefault(x => x.Id == photoId);
+            // user has no photo
+            if (photo == null) return NotFound();
+            // if first photo is already main
+            if (photo.IsMain) return BadRequest("this is already your main photo");
+            // get the current main pic
+            var currentMain = user.Photos.FirstOrDefault(x => x.IsMain);
+            // set the current main.IsMain to false
+            if (currentMain != null) currentMain.IsMain = false;
+            // set the passed photo to IsMain to true
+            photo.IsMain = true;
+            if (await _userRepository.SaveAllAsync()) return NoContent();
+            return BadRequest("Problem setting the main photo");
+        }
     }
 }
