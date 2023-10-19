@@ -45,16 +45,7 @@ export class MembersService {
     // for put request send empty object
     return this.http.put(this.baseUrl+'users/set-main-photo/'+photoId,{});
   }
-  // // pass the authorization token
-  // getHttpOptions(){
-  //   const userString=localStorage.getItem('user');
-  //   if(!userString) return;
-  //   const user=JSON.parse(userString);
-  //   console.log("user",user)
-  //   return {
-  //     headers:new HttpHeaders({
-  //       Authorization:'Bearer '+user.token
-  //     })
-  //   }
-  // }
+  deletePhoto(photoId:number){
+    return this.http.delete(this.baseUrl+'users/delete-photo/'+photoId);
+  }
 }

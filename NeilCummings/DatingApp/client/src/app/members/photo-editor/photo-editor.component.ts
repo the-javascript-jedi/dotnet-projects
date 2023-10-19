@@ -50,6 +50,16 @@ export class PhotoEditorComponent {
       }
     })
   }
+  deletePhoto(photoId:number){
+    this.memberService.deletePhoto(photoId).subscribe({
+      next:_=>{
+        if(this.member){
+          // remove the photo from the saved photo without making any api call
+          this.member.photos=this.member.photos.filter(x=>x.id!=photoId);
+        }
+      }
+    })
+  }
   initializeUploader(){
     this.uploader=new FileUploader({
       url:this.baseUrl+"users/add-photo",
