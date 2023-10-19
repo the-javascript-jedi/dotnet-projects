@@ -18,7 +18,8 @@
             </ul>
             <!-- dropdown --using ngx-bootstrap -->
             <div dropdown class="dropdown" *ngIf="(accountService.currentUser$|async) as user" dropdown>
-                <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome {{user.username}}</a>
+                <img src="{{user.photoUrl||'./assets/user.png'}}" alt="user photo"/>
+                <a class="dropdown-toggle text-light text-decoration-none ms-1" dropdownToggle>Welcome {{user.username}}</a>
                 <div class="dropdown-menu" *dropdownMenu>
                     <a class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
                     <a class="dropdown-item" (click)="logout()">Logout</a>

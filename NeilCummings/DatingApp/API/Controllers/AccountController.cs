@@ -49,7 +49,7 @@ public class AccountController : BaseApiController
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user),
             };
         }
     }
@@ -59,7 +59,9 @@ public class AccountController : BaseApiController
         // if user not present we get null in response.
         // SingleOrDefault - throws exception if more than one value is present
         //FirstOrDefault - returns first value or default value
-        var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
+        var user = await _context.Users
+            .Include(p => p.Photos)
+            .SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
         if (user == null)
         {
             return Unauthorized();
@@ -81,7 +83,9 @@ public class AccountController : BaseApiController
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user),
+                //only if we include the photos .Include(p => p.Photos) the photos are displayed
+                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
             };
         }
     }

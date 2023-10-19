@@ -41,6 +41,10 @@ export class MembersService {
       }
     ))
   }  
+  setMainPhoto(photoId:number){
+    // for put request send empty object
+    return this.http.put(this.baseUrl+'users/set-main-photo/'+photoId,{});
+  }
   // // pass the authorization token
   // getHttpOptions(){
   //   const userString=localStorage.getItem('user');
